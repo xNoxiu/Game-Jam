@@ -3,17 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuUI;
+    public GameObject pauseMenuUI;    
     
-    void Start(){
-        pauseMenuUI.SetActive(false);
-    }
-
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) 
-        {
-            if (pauseMenuUI.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape)){
+         if (pauseMenuUI.activeSelf)
             {
                 ResumeGame();
             }
@@ -26,15 +21,14 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        pauseMenuUI.SetActive(false); 
         Time.timeScale = 1f;
+        pauseMenuUI.SetActive(false); 
     }
     public void PauseGame()
     {
-        pauseMenuUI.SetActive(true); 
         Time.timeScale = 0f; 
+        pauseMenuUI.SetActive(true); 
     }
-
     public void ExitToMainMenu()
     {
         Time.timeScale = 1f; 
