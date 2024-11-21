@@ -64,10 +64,10 @@ public class Movement : MonoBehaviour
             newY = 0;
         }
         
-        Debug.Log("x");
+        /*Debug.Log("x");
         Debug.Log(newX);
         Debug.Log("y");
-        Debug.Log(newY);
+        Debug.Log(newY);*/
 
         animator.SetInteger("MoveX", newX);
         animator.SetInteger("MoveY", newY);
