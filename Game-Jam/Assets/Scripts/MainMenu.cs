@@ -3,18 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void StartNewGame()
+    public void StartLVL()
     {
         SceneManager.LoadScene("FirstLvl");
     }
 
-    
-    public void ContinueGame()
-    {
-        SceneManager.LoadScene("FirstLvl");
-    }
-
-    
     public void ExitGame()
     {
         Application.Quit();
