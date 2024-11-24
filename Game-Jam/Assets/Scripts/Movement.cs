@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
 {
     public float moveSpeed = 5f; // speed
 
+    public bool nowAnim = false;
     private Rigidbody2D rb;
     public Animator animator;
     private Vector2 movement;
@@ -20,9 +21,9 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        //no move when entry text
-        if (EventSystem.current.currentSelectedGameObject != null &&
-            EventSystem.current.currentSelectedGameObject.GetComponent<UnityEngine.UI.InputField>() != null)
+        
+        //no move when dialogue now doing
+        if (nowAnim)
         {
             movement = Vector2.zero;
             return;

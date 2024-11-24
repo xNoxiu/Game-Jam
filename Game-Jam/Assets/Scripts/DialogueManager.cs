@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,10 +17,16 @@ public class DialogueManager : MonoBehaviour
     public bool isDialogueActive = false;
     public float typingSpeed = 0.2f;
     public Animator animator;
+
+    public Movement movement;
+
+    public
     void Start()
     {
         if(Instance == null)
             Instance = this;
+
+        lines = new Queue<DialogueLine>();
     }   
 
     
@@ -29,6 +34,7 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = true;
         animator.Play("show");
         lines.Clear();
+        movement.nowAnim = true;
 
         foreach(DialogueLine dialogueLine in dialogue.dialogueLines){
             lines.Enqueue(dialogueLine);
@@ -64,5 +70,6 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue(){
         isDialogueActive = false;
         animator.Play("hide");
+        movement.nowAnim = false;
     }
 }
